@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Manipulation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="libs/bootstarp.css" rel="stylesheet" />
+  </head>
+  <body>
+    <svg
+      id="svg"
+      class="svg"
+      width="3178.5826772"
+      height="4493.8582677"
+      viewBox="0 0 300 300"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <g id="viewport">
+        <rect
+          x="0"
+          y="0"
+          width="3178.5826772"
+          height="4493.8582677"
+          style="stroke: blue; stroke-width: 2; fill: none"
+        />
+        <g id="elements">
+            <rect
+            x="0"
+            y="0"
+            width="3178.5826772"
+            height="4493.8582677"
+            style="stroke: none; fill: none"
+        />
+      </svg>
+      
+    </svg>
+
+    <div class="container-fluid">
+      <button id="theme-toggle" class="btn btn-secondary">🌙</button>
+      <button id="hide" class="btn btn-secondary">◀</button>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="panel controls">
+            <div class="row align-items-center">
+              <div class="col">
+                <button
+                  id="return"
+                  onclick="document.location.href='/add-person/index.html'"
+                  class="btn btn-secondary"
+                >
+                  Retour
+                </button>
+              </div>
+              <div
+                id="name"
+                class="col-6 text-uppercase font-weight-bold"
+                style="margin-left: -100px"
+              >
+                Titre
+              </div>
+            </div>
+            <br />
+
+            <label for="touredetaille">Tour de taille </label>
+            <input
+              type="number"
+              id="touredetaille"
+              name="touredetaille"
+              min="0"
+              max="100"
+              step="0.1"
+              value="40"
+              class="form-control"
+            />
+            <br />
+            <label for="longeur7emecervicaletailledos_cm"
+              >Longueur 7ème cervicale-taille dos</label
+            >
+            <input
+              type="number"
+              class="patronSlider form-control"
+              id="longeur7emecervicaletailledos_cm"
+              name="longeur7emecervicaletailledos_cm"
+              min="0"
+              max="100"
+              step="0.1"
+              value="30"
+            />
+            <br />
+            <label for="hauteurtaillepointedesein_cm"
+              >Hauteur taille-points de sein</label
+            >
+            <input
+              type="number"
+              class="patronSlider form-control"
+              id="hauteurtaillepointedesein_cm"
+              name="hauteurtaillepointedesein_cm"
+              min="0"
+              max="100"
+              step="0.1"
+              value="12"
+            />
+            <br />
+            <label for="carruredos_cm">Carrure dos</label>
+            <input
+              type="number"
+              class="patronSlider form-control"
+              id="carruredos_cm"
+              name="carruredos_cm"
+              min="0"
+              max="100"
+              step="0.1"
+              value="20"
+            />
+            <br />
+            <label for="tourdepoitriene_cm">Tour de poitrine</label>
+            <input
+              type="number"
+              class="patronSlider form-control"
+              id="tourdepoitriene_cm"
+              name="tourdepoitriene_cm"
+              min="0"
+              max="100"
+              step="0.1"
+              value="50"
+            />
+            <br />
+            <label for="tourdeencolure_cm">Tour d'encolure</label>
+            <input
+              type="number"
+              class="patronSlider form-control"
+              id="tourdeencolure_cm"
+              name="tourdeencolure_cm"
+              min="0"
+              max="100"
+              step="0.1"
+              value="12"
+            />
+            <br />
+            <label for="longeurdepaule_cm">Longueur d'épaule</label>
+            <input
+              type="number"
+              class="patronSlider form-control"
+              id="longeurdepaule_cm"
+              name="longeurdepaule_cm"
+              min="0"
+              max="100"
+              step="0.1"
+              value="13"
+            />
+            <br />
+            <label for="desantedepaule_cm">Descente d'épaule</label>
+            <input
+              type="number"
+              class="patronSlider form-control"
+              id="desantedepaule_cm"
+              name="desantedepaule_cm"
+              min="0"
+              max="100"
+              step="0.1"
+              value="3"
+            />
+            <br />
+
+            <button type="submit" class="btn btn-primary" id="save">
+              Sauvegarder
+            </button>
+            <button type="button" class="btn btn-primary" id="download">
+              Télécharger
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const body = document.querySelector("body");
+        const themeToggleButton = document.getElementById("theme-toggle");
+        const svgElement = document.getElementById("svg");
+
+        // Fonction pour appliquer le thème sauvegardé
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                body.classList.add("dark-mode");
+                themeToggleButton.textContent = "☀️";
+                svgElement.classList.add("dark-mode-filter");
+            } else {
+                body.classList.remove("dark-mode");
+                themeToggleButton.textContent = "🌙";
+                svgElement.classList.remove("dark-mode-filter");
+            }
+        }
+
+        // Écouteur d'événement pour le bouton de changement de thème
+        themeToggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+        
+            if (body.classList.contains("dark-mode")) {
+                themeToggleButton.textContent = "☀️";
+                svgElement.classList.add("dark-mode-filter");
+                localStorage.setItem("theme", "dark"); // Sauvegarde le thème
+            } else {
+                themeToggleButton.textContent = "🌙";
+                svgElement.classList.remove("dark-mode-filter");
+                localStorage.setItem("theme", "light"); // Sauvegarde le thème
+            }
+        });
+
+        // Appliquer le thème sauvegardé lors du chargement
+        applySavedTheme();
+
+        hide.addEventListener("click", () => {
+          const panelControls = document.querySelector(".panel.controls");
+          panelControls.classList.toggle("hidden");
+          hide.textContent = panelControls.classList.contains("hidden")
+            ? "▶"
+            : "◀";
+        });
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get("name");
+        document.getElementById("name").innerHTML = name;
+
+
+          // Get the viewport element
+          const viewport_rect = document.querySelector("#viewport > rect");
+          // Define the dimensions of the viewport
+          const viewport_rectWidth = viewport_rect.getAttribute('width');
+          const viewport_rectHeight = viewport_rect.getAttribute('height');
+
+          // Calculate the spacing between each vertical line
+          const verticalSpacing = viewport_rectWidth / 4; // 4 lines require 5 segments
+                
+          // Calculate the spacing between each horizontal line
+          const horizontalSpacing = viewport_rectHeight / 4; // 4 lines require 5 segments
+                
+          // Create 4 vertical lines
+          for (let i = 1; i <= 4; i++) {
+            const x = verticalSpacing * i;
+          
+            // Create a new vertical line element
+            const verticalLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            verticalLine.setAttribute('x1', x);
+            verticalLine.setAttribute('y1', 0);
+            verticalLine.setAttribute('x2', x);
+            verticalLine.setAttribute('y2', viewport_rectHeight);
+            verticalLine.setAttribute('style', 'stroke: green; stroke-width: 1');
+          
+            // Append the line to the viewport_rect
+            viewport.appendChild(verticalLine);
+          }
+          
+          // Create 4 horizontal lines
+          for (let i = 1; i <= 4; i++) {
+            const y = horizontalSpacing * i;
+          
+            // Create a new horizontal line element
+            const horizontalLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            horizontalLine.setAttribute('x1', 0);
+            horizontalLine.setAttribute('y1', y);
+            horizontalLine.setAttribute('x2', viewport_rectWidth);
+            horizontalLine.setAttribute('y2', y);
+            horizontalLine.setAttribute('style', 'stroke: green; stroke-width: 1');
+          
+            // Append the line to the viewport_rect
+            viewport.appendChild(horizontalLine);
+          }
+      });
+    </script>
+    <script src="script.js" type="module" defer></script>
+    <script src="function/save.js" defer></script>
+    <script src="libs/jspdf.js"></script>
+    <script src="function/svg_to_pdf.js"></script>
+    <script src="libs/gsap.js"></script>
+    <script src="libs/draggable.js"></script>
+    <script src="move_to_svg.js" defer></script>
+  </body>
+</html>

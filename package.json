@@ -1,0 +1,19 @@
+{
+    "name": "votre-projet",
+    "version": "1.0.0",
+    "description": "Description de votre projet",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "express-rate-limit": "^5.3.0",
+        "fs": "0.0.1-security",
+        "joi": "^17.4.2",
+        "jsonwebtoken": "^8.5.1",
+        "path": "^0.12.7"
+    }
+}

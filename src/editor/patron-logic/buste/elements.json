@@ -1,0 +1,140 @@
+{
+    "lines": [
+      {
+        "id": "ligneAB",
+        "x1": "37.795275591",
+        "y1": "4456.062992109",
+        "x2": "0",
+        "y2": "4456.062992109",
+        "style": "stroke: black; stroke-width: 2"
+      },
+      {
+        "id": "ligneAC",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: black; stroke-width: 2"
+      },
+      {
+        "id": "ligneEM",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: white; stroke-width: 2"
+      },
+      {
+        "id": "ligneHTPB",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: black; stroke-width: 2"
+      },
+      {
+        "id": "ligneLP",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: white; stroke-width: 2"
+      },
+      {
+        "id": "lignePEL",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: black; stroke-width: 2"
+      },
+      {
+        "id": "ligneCE",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: black; stroke-width: 2"
+      },
+      {
+        "id": "ligneEF",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: black; stroke-width: 2"
+      },
+      {
+        "id": "ligneFG",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: white; stroke-width: 2"
+      },
+      {
+        "id": "ligneGM",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: white; stroke-width: 2"
+      },
+      {
+        "id": "ligneFM",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: black; stroke-width: 2"
+      },
+      {
+        "id": "ligneHE",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: white; stroke-width: 2"
+      },
+      {
+        "id": "lignePE",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: white; stroke-width: 2"
+      },
+      {
+        "id": "ligneCH1",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: red; stroke-width: 2"
+      },
+      {
+        "id": "ligneCH2",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: red; stroke-width: 2"
+      },
+      {
+        "id": "ligneCH3",
+        "x1": "0",
+        "y1": "0",
+        "x2": "0",
+        "y2": "0",
+        "style": "stroke: red; stroke-width: 2"
+      }
+    ],
+    "paths": [
+      {
+        "id": "courbeEmmanchure",
+        "d": "",
+        "style": "fill: none; stroke: blue; stroke-width: 2"
+      }
+    ]
+  }
+  

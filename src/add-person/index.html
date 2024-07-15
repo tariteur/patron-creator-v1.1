@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des clients</title>
+    <link href="libs/bootstarp.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Gestion des clients</h1>
+        <ul class="nav nav-tabs mt-4">
+            <li class="nav-item">
+                <button id="list-tab" class="nav-link">Liste des clients</button>
+            </li>
+            <li class="nav-item">
+                <button id="add-tab" class="nav-link active">Ajouter une personne</button>
+            </li>
+        </ul>
+        <div id="tab-content" class="mt-4">
+            <div id="list-clients-tab" class="tab-pane">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="🔎 Rechercher par nom" id="search-input">
+                </div>
+                <!-- Contenu pour afficher la liste des clients -->
+                <div id="list-client" class="tab-pane"></div>            
+            </div> 
+            <div id="add-person-tab" class="tab-pane active">
+                <div id="add-person-form">
+                    <div class="form-group">
+                        <label for="name">Nom :</label>
+                        <input type="text" class="form-control" placeholder="Nom Prénom" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="text" class="form-control" placeholder="Address mail" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="numero">Numéro :</label>
+                        <input type="text" class="form-control" placeholder="06 xx xx xx xx" id="numero">
+                    </div>
+                    <button id="add-person-btn" class="btn btn-success">Ajouter</button>                    
+                </div>
+            </div>           
+        </div>
+    </div>
+</body>
+</html>
