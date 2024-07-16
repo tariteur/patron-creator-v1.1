@@ -1,3 +1,5 @@
+import { getEditorObject } from './getEditorObject.js';
+
 function downloadViewportAsImage(svg) {
     const serializer = new XMLSerializer();
     const viewport = svg.querySelector("#elements");
@@ -42,6 +44,8 @@ function createPDF(canvas, ctx, rows, cols) {
 
         const imageData = ctx.getImageData(x, y, partWidth, partHeight);
 
+        pageCount++;
+
         // Vérifier si l'image n'est pas vide
         if (isImageDataNotEmpty(imageData)) {
             const tempCanvas = document.createElement('canvas');
@@ -55,9 +59,7 @@ function createPDF(canvas, ctx, rows, cols) {
 
             // Ajouter la numérotation des pages
             pdf.setFontSize(12);
-            pdf.text(`Page ${pageCount + 1}`, pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - 30, { align: 'center' });
-
-            pageCount++; // Incrémenter le compteur de pages
+            pdf.text(`Page ${pageCount}`, pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - 30, { align: 'center' });
 
             // Ajouter une nouvelle page si ce n'est pas la dernière page à traiter
             if (page < rows * cols - 1) {
@@ -65,6 +67,9 @@ function createPDF(canvas, ctx, rows, cols) {
             }
         }
     }
+
+    // Ajouter la page avec les caractéristiques
+    addCharacteristicsPage(pdf);
 
     // Sauvegarder le PDF seulement s'il y a des pages ajoutées
     if (pageCount > 0) {
@@ -85,9 +90,43 @@ function isImageDataNotEmpty(imageData) {
     return false;
 }
 
+// Fonction pour ajouter la page des caractéristiques
+function addCharacteristicsPage(pdf) {
+    const editor = getEditorObject();
+    const keys = Object.keys(editor);
+    const values = Object.values(editor);
 
+    const nameValue = document.getElementById("name").innerHTML;
+    keys.unshift("Nom Prénom:");
+    values.unshift(nameValue);
+
+    pdf.addPage();
+    pdf.setFontSize(16);
+    pdf.text("Caractéristiques", pdf.internal.pageSize.getWidth() / 2, 40, { align: 'center' });
+
+    pdf.setFontSize(12);
+    let y = 60;
+
+    // Dessiner le tableau
+    pdf.setLineWidth(0.5);
+    pdf.line(40, y, pdf.internal.pageSize.getWidth() - 40, y); // Ligne du haut
+
+    y += 20;
+    keys.forEach((key, index) => {
+        pdf.text(key, 60, y);
+        pdf.text(values[index].toString(), pdf.internal.pageSize.getWidth() - 60, y, { align: 'right' });
+
+        y += 20;
+
+        // Ajouter une ligne après chaque entrée
+        pdf.line(40, y, pdf.internal.pageSize.getWidth() - 40, y);
+        y += 20;
+    });
+}
 
 document.getElementById("download").addEventListener("click", () => {
     const svg = document.getElementById("svg");
+    const editor = getEditorObject();
+    console.log(editor)
     downloadViewportAsImage(svg);
 });
